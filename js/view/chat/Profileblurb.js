@@ -4,10 +4,12 @@ import ProfileFull from './ProfileFull';
 import UtilModalWrapper from './UtilModalWrapper';
 
 export default class ProfileBlurb extends Component {
-    _showProfileModel(){
+    _showProfileModel(e){
+        e.stopPropagation();
         var props = {
+            isSubmit:false,
             title:'User Profile' ,
-            body:<ProfileFull {...this.props} />
+            body:<ProfileFull {...this.props}/>
         };
         render(<UtilModalWrapper {...props}/> , document.getElementById('modalContainer'))
     }
